@@ -12,9 +12,7 @@ public class CarController {
 	@GetMapping({"", "car"})
 	public String showCar(Model model) {
 		Car car = new Car("Skoda", "Fabia");
-
 		model.addAttribute("car", car);
 		return "car";
 	}
-
 }
