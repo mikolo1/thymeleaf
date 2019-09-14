@@ -1,0 +1,56 @@
+body{
+	background-color: #77847d;
+}
+
+.content{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+}
+
+table, th {
+	margin: auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+	
+table tr td, th{
+	border: 1px solid black;
+	padding-left: 10px;
+	padding-right: 10px;
+}	
+
+a {
+	text-decoration: none;
+	color: #9e1d1d;
+	font-weight: bold;
+}
+
+.tableform, .tableform td{
+	border: none;
+}
+
+#carid{
+	background-color: #d6d6d6;
+	color: #808080;
+}
+
+.maintable tr:nth-child(even){
+	background: #CCC
+	}
+.maintable tr:nth-child(odd) {
+	background: #a7bead;
+}
+
+.deletelink a{
+	color: #df0000;
+}
+
+#tablerow:hover {
+	background-color: #a8a8a8;
+}
+

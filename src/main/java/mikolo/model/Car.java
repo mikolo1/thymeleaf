@@ -11,7 +11,14 @@ import lombok.ToString;
 @Data
 public class Car {
 	
+	private Long nr;
 	private String mark;
 	private String model;
+	
+	public Car(String mark, String model) {
+		this.mark = mark;
+		this.model = model;
+	}
 
+	
 }

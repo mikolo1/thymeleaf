@@ -3,23 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Thymeleaf project</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-	<h1>Siema od Themeleafa!</h1>
-	<!-- 	<h3>MARKA:</h3>
-	<h2 th:text = "${car.mark}"></h2>
-	<h3>MODEL:</h3>
-	<h2 th:text = "${car.model}"></h2> -->
-
-	<table>
-	<tr>
-		<th>Marka</th>
-		<th>Model</th>
-	</tr>
-		<tr th:each="c: ${cars}">
-			<td th:text = "${c.mark}"></td>
-			<td th:text = "${c.model}"></td>
-		</tr>
-	</table>
+	<h1>Coś tam w Thymeleaf'ie!</h1>
+	<div class="content">
+		<table class = "maintable">
+			<tr>
+				<th>L.p.</th>
+				<th>Marka</th>
+				<th>Model</th>
+				<th>Usuń</th>
+			</tr>
+			<tr id = "tablerow" th:each="c: ${cars}" class = "maintablerow">
+				<td><a th:href="@{/edit/}+${c.nr}" th:text="${c.nr}"></a></td>
+				<td><a th:href="@{/edit/}+${c.nr}" th:text="${c.mark}"></a></td>
+				<td><a th:href="@{/edit/}+${c.nr}" th:text="${c.model}"></a></td>
+				<td class = "deletelink"><a th:href="@{/delete/}+${c.nr}">Usuń</a></td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<form th:action="@{addcar}" method="post" th:object="${car}">
+			<label for="marka"> <span>Marka: </span> <input type="text"
+				id="marka" th:field="${car.mark}">
+			</label> <br /> <label for="model"> <span>Model: </span> <input
+				type="text" id="model" th:field="${car.model}"><br/>
+			</label> <br /> <input type="submit" value="Dodaj pojazd">
+		</form>
+	</div>
 </body>
 </html>
