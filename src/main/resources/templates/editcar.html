@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Thymeleaf project</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1>Siema od Thymeleafa!</h1>
+	<div class="content">
+		<table class="tableform">
+			<form th:action="@{../caredit}" method="POST" th:object="${car}">
+
+				<tr>
+					<td><label for="carid"> <span>L.p.:</span></td>
+					<td><input type="text" id="carid" th:readonly="true"
+						th:field="${car.nr}"></label></td>
+				</tr>
+				<tr>
+					<td><label for="marka"> <span>Marka: </span></td>
+					<td><input type="text" id="marka" th:field="${car.mark}">
+						</label></td>
+				</tr>
+				<tr>
+					<td><label for="model"> <span>Model: </span></td>
+					<td><input type="text" id="model" th:field="${car.model}">
+						</label></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Zatwierdz zmiany"></td>
+					<td><input type="button" value="Zrezygnuj"
+						th:onclick="|window.location.href='/car'|"></td>
+				</tr>
+			</form>
+		</table>
+	</div>
+</body>
+</html>
