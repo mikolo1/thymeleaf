@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.AllArgsConstructor;
 import mikolo.model.Car;
@@ -27,9 +28,9 @@ public class CarController {
 		return "car";
 	}
 	
-	@PostMapping("addcar")
-	public String addCar(@ModelAttribute Car car) {
-		carRepository.addCar(car);
+	@GetMapping("addcar")
+	public String addCar(@RequestParam String mark, @RequestParam String model) {
+		carRepository.addCar(new Car(mark, model));
 		return "redirect:car";
 	}
 	
@@ -50,5 +51,26 @@ public class CarController {
 	public String editCar(@ModelAttribute Car car) {
 		carRepository.editCar(car);
 		return "redirect:/car";
+	}
+	
+	@GetMapping("calculator")
+	public String showCalculator(Model model) {
+		double firstvar = 0;
+		double secondvar = 0;
+		double result = firstvar + secondvar;
+		model.addAttribute("firstvar", firstvar);
+		model.addAttribute("secondvar", secondvar);
+		model.addAttribute("result", result);
+		return "calc";
+	}
+	
+	@GetMapping("calculate")
+	public String calculate(@RequestParam double firstvar, @RequestParam double secondvar, Model model) {
+
+		double result = firstvar + secondvar;
+		model.addAttribute("firstvar", 0);
+		model.addAttribute("secondvar", 0);
+		model.addAttribute("result", result);
+		return "calc";
 	}
 }

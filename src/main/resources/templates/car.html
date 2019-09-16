@@ -24,7 +24,7 @@
 		</table>
 		<br />
 		<br />
-		<form th:action="@{addcar}" method="post" th:object="${car}">
+		<form th:action="@{addcar}" method="get" th:object="${car}">
 			<label for="marka"> <span>Marka: </span> <input type="text"
 				id="marka" th:field="${car.mark}">
 			</label> <br /> <label for="model"> <span>Model: </span> <input

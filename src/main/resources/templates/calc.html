@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Thymeleaf project</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1>Coś tam w Thymeleaf'ie!</h1>
+	<div class="content">
+		
+		<form th:action="@{calculate}" method="get">
+			<label for="marka"> <span>I liczba: </span> <input type="text"
+				id="marka" name="firstvar" th:value="${firstvar}">
+			</label> <br /><p>+</p>
+			<label for="model"> <span>II liczba: </span> <input
+				type="text" id="model" name="secondvar" th:value="${secondvar}"><br/>
+			</label> <br /> <input type="submit" value="Dodaj">
+		</form>
+		<p>=</p>
+		<p th:text="${result}"></p>
+	</div>
+</body>
+</html>
