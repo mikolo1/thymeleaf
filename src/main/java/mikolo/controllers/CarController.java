@@ -28,16 +28,22 @@ public class CarController {
 		return "car";
 	}
 	
+//	@GetMapping("addcar")
+//	public String addCar(@RequestParam String mark, @RequestParam String model) {
+//		carRepository.addCar(new Car(mark, model));
+//		return "redirect:car";
+//	}
+	
 	@GetMapping("addcar")
-	public String addCar(@RequestParam String mark, @RequestParam String model) {
-		carRepository.addCar(new Car(mark, model));
+	public String addCar(Car car) {
+		carRepository.addCar(car);
 		return "redirect:car";
 	}
 	
-	@GetMapping("/delete/{id}")
-	public String deleteCar(@PathVariable("id") int carId) {
-		carRepository.deleteCar(carId);
-		return "redirect:../car";
+	@GetMapping("/delete")
+	public String deleteCar(@RequestParam int id) {
+		carRepository.deleteCar(id);
+		return "redirect:/car";
 	}
 	
 	@GetMapping("/edit/{id}")

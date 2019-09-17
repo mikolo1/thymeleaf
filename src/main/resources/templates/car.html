@@ -19,7 +19,7 @@
 				<td><a th:href="@{/edit/}+${c.nr}" th:text="${c.nr}"></a></td>
 				<td><a th:href="@{/edit/}+${c.nr}" th:text="${c.mark}"></a></td>
 				<td><a th:href="@{/edit/}+${c.nr}" th:text="${c.model}"></a></td>
-				<td class = "deletelink"><a th:href="@{/delete/}+${c.nr}">Usuń</a></td>
+				<td class = "deletelink"><a th:href="@{/delete(id=${c.nr})}" >Usuń</a></td>
 			</tr>
 		</table>
 		<br />
