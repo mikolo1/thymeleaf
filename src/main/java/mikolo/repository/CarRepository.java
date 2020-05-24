@@ -39,11 +39,11 @@ public class CarRepository {
 	
 	public Car findByNr(int id) {
 		addNrToCarList();
-		return (allCars.get((id-1)));
+		return (allCars.get(id - 1));
 	}
 
 	public void editCar(Car car) {
-		Car carToEdit = findByNr((car.getNr().intValue()));
+		Car carToEdit = findByNr(car.getNr().intValue());
 		carToEdit.setMark(car.getMark());
 		carToEdit.setModel(car.getModel());
 	}
